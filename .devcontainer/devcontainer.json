@@ -1,0 +1,14 @@
+{
+    "name": "Node.js",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:16",
+    "features": {
+        "ghcr.io/devcontainers-contrib/features/pnpm:2": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": ["EditorConfig.EditorConfig"]
+        }
+    },
+    "postCreateCommand": ".devcontainer/postCreate.sh",
+    "remoteUser": "node"
+}
