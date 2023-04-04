@@ -2,7 +2,10 @@
   "name": "iroiro.css",
   "version": "1.0.0",
   "description": "Stylesheets based on the iroiro colors",
-  "files": ["css", "scss"],
+  "files": [
+    "css",
+    "scss"
+  ],
   "main": "css/iroiro.min.css",
   "sass": "scss/iroiro.scss",
   "style": "css/iroiro.min.css",
