@@ -1,0 +1,37 @@
+{
+  "name": "iroiro.css",
+  "version": "1.0.0",
+  "description": "Stylesheets based on the iroiro colors",
+  "files": ["css", "scss"],
+  "main": "css/iroiro.min.css",
+  "sass": "scss/iroiro.scss",
+  "style": "css/iroiro.min.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-all": "npm run build-scss && npm run build-css && npm run build-css-min",
+    "build-scss": "node scripts/generate.cjs",
+    "build-css": "sass scss/:css/",
+    "build-css-min": "sass --style=compressed scss/iroiro.scss css/iroiro.min.css",
+    "format-check": "prettier --check .",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spenserblack/iroiro.css.git"
+  },
+  "keywords": [
+    "css",
+    "sass"
+  ],
+  "author": "Spenser Black",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spenserblack/iroiro.css/issues"
+  },
+  "homepage": "https://github.com/spenserblack/iroiro.css#readme",
+  "devDependencies": {
+    "iroiro": "0.2.0",
+    "prettier": "2.8.7",
+    "sass": "^1.60.0"
+  }
+}
