@@ -1,7 +1,3 @@
-<script setup>
-const name = "World";
-</script>
-
 <template>
   <div class="app">
     <header class="header bg-usu text-shironeri">
