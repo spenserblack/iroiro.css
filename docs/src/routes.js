@@ -1,13 +1,13 @@
-import Home from './pages/Home.vue';
-import Colors from './pages/Colors.vue';
+import Home from "./pages/Home.vue";
+import Colors from "./pages/Colors.vue";
 
 const routes = [
   {
-    path: '/',
+    path: "/",
     component: Home,
   },
   {
-    path: '/colors',
+    path: "/colors",
     component: Colors,
   },
 ];

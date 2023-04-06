@@ -1,5 +1,5 @@
 <script setup>
-const name = 'World';
+const name = "World";
 </script>
 
 <template>

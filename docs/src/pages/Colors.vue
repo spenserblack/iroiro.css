@@ -1,5 +1,5 @@
 <script setup>
-import { colors } from 'iroiro';
+import { colors } from "iroiro";
 
 const colorNames = colors.map(({ romanized }) => romanized.toLowerCase());
 </script>
@@ -23,8 +23,8 @@ const colorNames = colors.map(({ romanized }) => romanized.toLowerCase());
     <h3><code>.bg-*</code></h3>
     <div class="preview-container">
       <div v-for="name in colorNames" :key="name" class="row">
-        <div class="white col"  :class="`bg-${name}`">.bg-{{ name }}</div>
-        <div class="black col"  :class="`bg-${name}`">.bg-{{ name }}</div>
+        <div class="white col" :class="`bg-${name}`">.bg-{{ name }}</div>
+        <div class="black col" :class="`bg-${name}`">.bg-{{ name }}</div>
       </div>
     </div>
   </div>

@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
 
-const port = process.env.CODESPACES == 'true' ? 3000 : void 0;
+const port = process.env.CODESPACES == "true" ? 3000 : void 0;
 
 export default defineConfig({
-  root: 'docs',
+  root: "docs",
   server: {
     port,
   },
