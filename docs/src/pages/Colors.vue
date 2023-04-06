@@ -8,8 +8,8 @@ const colorNames = colors.map(({ romanized }) => romanized.toLowerCase());
   <div class="colors-page">
     <h2>Colors</h2>
     <p>
-      All of the colors are sourced from <a :href="$iroiro">iroiro</a>.
-      Previews are below.
+      All of the colors are sourced from <a :href="$iroiro">iroiro</a>. Previews are
+      below.
     </p>
 
     <h3><code>.text-*</code></h3>

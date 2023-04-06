@@ -4,7 +4,7 @@
 // See vuejs.org/guide/typescript/options-api.html#augmenting-global-properties
 export {};
 
-declare module 'vue' {
+declare module "vue" {
   interface ComponentCustomProperties {
     $iroiro: string;
   }
