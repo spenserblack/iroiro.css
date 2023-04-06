@@ -17,7 +17,7 @@ ${Object.entries(colors)
   .map(([name, hex]) => `$${name}: ${hex} !default;`)
   .join("\n")}
 
-$colors: (
+$iroiro-colors: (
 ${Object.keys(colors)
   .map((name) => `  "${name}": $${name},`)
   .join("\n")}
