@@ -1,0 +1,35 @@
+@import "../../scss/variables";
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-color: $gofun;
+  color: $sumi;
+}
+
+pre {
+  text-align: left;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
