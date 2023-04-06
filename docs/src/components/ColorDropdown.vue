@@ -1,43 +1,62 @@
 <script setup>
-import { computed, ref } from 'vue';
-import { colors } from 'iroiro';
+import { computed, ref } from "vue";
+import { colors } from "iroiro";
 
 const props = defineProps({
   modelValue: {
     type: String,
-    default: '',
+    default: "",
   },
 });
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits(["update:modelValue"]);
 
 // NOTE: Maps a color's romanized name to the color.
-const colorRecord = colors.reduce((record, { romanized, ...color }) => ({
-  ...record,
-  [romanized.toLowerCase()]: color,
-}), {});
+const colorRecord = colors.reduce(
+  (record, { romanized, ...color }) => ({
+    ...record,
+    [romanized.toLowerCase()]: color,
+  }),
+  {},
+);
 const colorChoices = Object.keys(colorRecord);
 
 const isDark = (color) => color.lightness < 0.5;
-const textColor = (color) => `text-${isDark(color) ? 'white' : 'black'}`;
+const textColor = (color) => `text-${isDark(color) ? "white" : "black"}`;
 
 const open = ref(false);
-const btnTextClass = computed(() => (props.modelValue ? textColor(colorRecord[props.modelValue]) : 'text-gofun'));
-const btnClass = computed(() => `${btnTextClass.value} bg-${props.modelValue || 'ruri'}`);
+const btnTextClass = computed(() =>
+  props.modelValue ? textColor(colorRecord[props.modelValue]) : "text-gofun",
+);
+const btnClass = computed(
+  () => `${btnTextClass.value} bg-${props.modelValue || "ruri"}`,
+);
 
 const select = (color) => {
   open.value = false;
-  emit('update:modelValue', color);
+  emit("update:modelValue", color);
 };
 </script>
 
 <template>
   <div class="color-dropdown">
-    <button type="button" class="dropdown-toggle" :class="btnClass" @click="open = !open" aria-label="Toggle Dropdown">
+    <button
+      type="button"
+      class="dropdown-toggle"
+      :class="btnClass"
+      @click="open = !open"
+      aria-label="Toggle Dropdown"
+    >
       <span v-if="props.modelValue">{{ props.modelValue }}</span>
       <span v-else>Select a color</span>
     </button>
     <div class="dropdown-menu" v-show="open">
-      <div class="dropdown-item" v-for="color in colorChoices"  :class="[textColor(colorRecord[color]), `bg-${color}`]" :key="color" @click="select(color)">
+      <div
+        class="dropdown-item"
+        v-for="color in colorChoices"
+        :class="[textColor(colorRecord[color]), `bg-${color}`]"
+        :key="color"
+        @click="select(color)"
+      >
         {{ color }}
       </div>
     </div>

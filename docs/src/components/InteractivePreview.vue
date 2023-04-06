@@ -1,9 +1,9 @@
 <script setup>
-import { ref } from 'vue'
-import ColorDropdown from './ColorDropdown.vue'
+import { ref } from "vue";
+import ColorDropdown from "./ColorDropdown.vue";
 
-const bg = ref('ruri');
-const fg = ref('gofun');
+const bg = ref("ruri");
+const fg = ref("gofun");
 </script>
 
 <template>

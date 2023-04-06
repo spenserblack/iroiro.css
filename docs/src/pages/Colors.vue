@@ -4,9 +4,15 @@ import { colors, getColors } from "iroiro";
 import InteractivePreview from "../components/InteractivePreview.vue";
 
 const colorNames = colors.map(({ romanized }) => romanized.toLowerCase());
-const searchableNames = Array.from(colors.reduce((set, { names }) => new Set([...set, ...names]), new Set())).sort((a, b) => a.localeCompare(b));
+const searchableNames = Array.from(
+  colors.reduce((set, { names }) => new Set([...set, ...names]), new Set()),
+).sort((a, b) => a.localeCompare(b));
 const searchTerm = ref("");
-const foundColors = computed(() => (searchTerm.value ? getColors(searchTerm.value) : []).map(({ romanized }) => romanized.toLowerCase()));
+const foundColors = computed(() =>
+  (searchTerm.value ? getColors(searchTerm.value) : []).map(({ romanized }) =>
+    romanized.toLowerCase(),
+  ),
+);
 </script>
 
 <template>
@@ -19,15 +25,20 @@ const foundColors = computed(() => (searchTerm.value ? getColors(searchTerm.valu
 
     <h3>Interactive Preview</h3>
     <p>
-      Use the inputs to change the preview. The preview will update as you select options.
+      Use the inputs to change the preview. The preview will update as you select
+      options.
     </p>
     <InteractivePreview />
 
     <h3><code>.text-*</code></h3>
     <div class="preview-container">
       <div v-for="name in colorNames" :key="name" class="row">
-        <div class="on-white col preview-col" :class="`text-${name}`">.text-{{ name }}</div>
-        <div class="on-black col preview-col" :class="`text-${name}`">.text-{{ name }}</div>
+        <div class="on-white col preview-col" :class="`text-${name}`">
+          .text-{{ name }}
+        </div>
+        <div class="on-black col preview-col" :class="`text-${name}`">
+          .text-{{ name }}
+        </div>
       </div>
     </div>
 
@@ -57,11 +68,14 @@ const foundColors = computed(() => (searchTerm.value ? getColors(searchTerm.valu
       </div>
     </div>
     <p>
-      Try using the input to search for some colors. This input wraps the <code>getColors</code> function.
+      Try using the input to search for some colors. This input wraps the
+      <code>getColors</code> function.
     </p>
-    <input type="text" v-model="searchTerm" list="search-terms">
+    <input type="text" v-model="searchTerm" list="search-terms" />
     <datalist id="search-terms">
-      <option v-for="name in searchableNames" :key="name" :value="name">{{ name }}</option>
+      <option v-for="name in searchableNames" :key="name" :value="name">
+        {{ name }}
+      </option>
     </datalist>
     <div class="preview-container">
       <div v-for="name in foundColors" :key="name" class="row">
