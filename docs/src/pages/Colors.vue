@@ -1,5 +1,6 @@
 <script setup>
 import { colors } from "iroiro";
+import InteractivePreview from "../components/InteractivePreview.vue";
 
 const colorNames = colors.map(({ romanized }) => romanized.toLowerCase());
 </script>
@@ -11,6 +12,12 @@ const colorNames = colors.map(({ romanized }) => romanized.toLowerCase());
       All of the colors are sourced from <a :href="$iroiro">iroiro</a>. Previews are
       below.
     </p>
+
+    <h3>Interactive Preview</h3>
+    <p>
+      Use the inputs to change the preview. The preview will update as you select options.
+    </p>
+    <InteractivePreview />
 
     <h3><code>.text-*</code></h3>
     <div class="preview-container">
@@ -55,18 +62,8 @@ const colorNames = colors.map(({ romanized }) => romanized.toLowerCase());
   margin: auto;
   overflow: auto;
 
-  .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
   .col {
     $vertical-padding: 0.25rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
     &.preview-col {
       width: 50%;
