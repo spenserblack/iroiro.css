@@ -11,6 +11,7 @@ const name = 'World';
       <h2>Menu</h2>
       <ul class="nav">
         <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/colors">Colors</router-link></li>
         <li>
           <a href="//github.com/spenserblack/iroiro.css">GitHub</a>
         </li>
@@ -60,6 +61,7 @@ $drawer-width: 300px;
   left: $drawer-width;
   right: 0;
   bottom: 0;
+  overflow: auto;
 }
 
 ul.nav {
