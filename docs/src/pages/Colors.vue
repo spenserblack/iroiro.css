@@ -1,8 +1,12 @@
 <script setup>
-import { colors } from "iroiro";
+import { computed, ref } from "vue";
+import { colors, getColors } from "iroiro";
 import InteractivePreview from "../components/InteractivePreview.vue";
 
 const colorNames = colors.map(({ romanized }) => romanized.toLowerCase());
+const searchableNames = Array.from(colors.reduce((set, { names }) => new Set([...set, ...names]), new Set())).sort((a, b) => a.localeCompare(b));
+const searchTerm = ref("");
+const foundColors = computed(() => (searchTerm.value ? getColors(searchTerm.value) : []).map(({ romanized }) => romanized.toLowerCase()));
 </script>
 
 <template>
@@ -34,22 +38,35 @@ const colorNames = colors.map(({ romanized }) => romanized.toLowerCase());
         <div class="black col preview-col" :class="`bg-${name}`">.bg-{{ name }}</div>
       </div>
     </div>
-  </div>
 
-  <h3>Programmatically selecting colors</h3>
-  <p>
-    <a :href="$iroiro">iroiro</a> provides <code>colors: Color[]</code> and
-    <code>getColors(name: string): Color[]</code>, which can aid in selecting colors.
-  </p>
-  <h4>Example</h4>
-  <div class="preview-container">
-    <div class="row">
-      <div class="col">
-        <pre>
-          <code>const red = iroiro.getColors('red');</code>
-          <code>// NOTE: These stylesheets use the romanized name</code>
-          <code>const cssClass = `text-${red[0].romanized}`;</code>
-        </pre>
+    <h3>Programmatically selecting colors</h3>
+    <p>
+      <a :href="$iroiro">iroiro</a> provides <code>colors: Color[]</code> and
+      <code>getColors(name: string): Color[]</code>, which can aid in selecting colors.
+    </p>
+    <h4>Example</h4>
+    <div class="preview-container">
+      <div class="row">
+        <div class="col">
+          <pre>
+            <code>const red = iroiro.getColors('red');</code>
+            <code>// NOTE: These stylesheets use the romanized name</code>
+            <code>const cssClass = `text-${red[0].romanized}`;</code>
+          </pre>
+        </div>
+      </div>
+    </div>
+    <p>
+      Try using the input to search for some colors. This input wraps the <code>getColors</code> function.
+    </p>
+    <input type="text" v-model="searchTerm" list="search-terms">
+    <datalist id="search-terms">
+      <option v-for="name in searchableNames" :key="name" :value="name">{{ name }}</option>
+    </datalist>
+    <div class="preview-container">
+      <div v-for="name in foundColors" :key="name" class="row">
+        <div class="white col preview-col" :class="`bg-${name}`">{{ name }}</div>
+        <div class="black col preview-col" :class="`bg-${name}`">{{ name }}</div>
       </div>
     </div>
   </div>
@@ -61,6 +78,7 @@ const colorNames = colors.map(({ romanized }) => romanized.toLowerCase());
   width: 25rem;
   margin: auto;
   overflow: auto;
+  padding-bottom: 10vh;
 
   .col {
     $vertical-padding: 0.25rem;
