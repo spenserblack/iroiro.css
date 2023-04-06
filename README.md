@@ -5,4 +5,9 @@
 
 Stylesheets based on the [iroiro] colors
 
+## Documentation
+
+Please visit the [documentation][docs] for more information on the available options.
+
+[docs]: https://iroiro-css.vercel.app/
 [iroiro]: https://github.com/antfu/iroiro
