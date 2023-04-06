@@ -9,6 +9,9 @@
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/colors">Colors</router-link></li>
         <li>
+          <a :href="$iroiro">iroiro</a>
+        </li>
+        <li>
           <a href="//github.com/spenserblack/iroiro.css">GitHub</a>
         </li>
       </ul>
