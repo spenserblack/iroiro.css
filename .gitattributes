@@ -1,2 +1,4 @@
 scss/_variables.scss linguist-generated
 css/* linguist-generated
+*.min.css binary
+*.map binary
