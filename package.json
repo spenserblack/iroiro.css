@@ -11,10 +11,11 @@
   "style": "css/iroiro.min.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-all": "npm run build-scss && npm run build-css && npm run build-css-min",
+    "build-all": "npm run build-scss && npm run build-css && npm run build-css-min && npm run build-bs-min",
     "build-scss": "node scripts/generate.cjs",
     "build-css": "sass scss/:css/",
     "build-css-min": "sass --style=compressed scss/iroiro.scss css/iroiro.min.css",
+    "build-bs-min": "sass --style=compressed scss/bootstrap5.scss css/bootstrap5.min.css",
     "format-check": "prettier --check .",
     "format": "prettier --write .",
     "docs-dev": "vite"
@@ -24,6 +25,7 @@
     "url": "git+https://github.com/spenserblack/iroiro.css.git"
   },
   "keywords": [
+    "bootstrap",
     "css",
     "sass"
   ],
@@ -35,6 +37,7 @@
   "homepage": "https://github.com/spenserblack/iroiro.css#readme",
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
+    "bootstrap": "^5.2.3",
     "iroiro": "0.2.0",
     "prettier": "2.8.7",
     "sass": "^1.60.0",

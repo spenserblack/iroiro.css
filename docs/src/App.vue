@@ -1,75 +1,53 @@
+<script setup>
+import { $iroiro } from "./global-props";
+</script>
+
 <template>
-  <div class="app">
-    <header class="header bg-usu text-shironeri">
-      <h1><code>iroiro.css</code></h1>
+  <div class="bg-gofun text-sumi app">
+    <header class="header bg-usu text-center">
+      <h1><code class="text-shironeri">iroiro.css</code></h1>
     </header>
-    <div class="drawer left-drawer bg-sakura text-ebicha">
+    <aside class="drawer left-drawer bg-sakura">
       <h2>Menu</h2>
-      <ul class="nav">
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/colors">Colors</router-link></li>
-        <li>
-          <a :href="$iroiro">iroiro</a>
-        </li>
-        <li>
-          <a href="//github.com/spenserblack/iroiro.css">GitHub</a>
-        </li>
-      </ul>
-    </div>
-    <main class="main">
+      <nav class="nav flex-column">
+        <router-link class="nav-link" to="/" exact>Home</router-link>
+        <router-link class="nav-link" to="/colors" exact>Colors</router-link>
+        <a class="nav-link" :href="$iroiro">iroiro</a>
+        <a class="nav-link" href="//github.com/spenserblack/iroiro.css">GitHub</a>
+      </nav>
+    </aside>
+    <main class="main container-xxl">
+      <!-- TODO Remove -->
       <router-view />
     </main>
   </div>
 </template>
 
 <style lang="scss" scoped>
-$header-height: 100px;
-$drawer-width: 300px;
 .app {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header header"
+    "left-drawer main";
+  grid-gap: 0;
   height: 100vh;
-  width: 100vw;
 }
 
 .header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: $header-height;
+  grid-area: header;
 }
-
 .drawer {
-  position: absolute;
-  top: $header-height;
-  bottom: 0;
-  width: 300px;
+  --bs-link-color: var(--bs-ebicha);
+  --bs-link-hover-color: var(--bs-kurenai);
+  padding-left: 1rem;
 }
-
 .left-drawer {
-  left: 0;
+  grid-area: left-drawer;
 }
 
 .main {
-  position: absolute;
-  top: $header-height;
-  left: $drawer-width;
-  right: 0;
-  bottom: 0;
-  overflow: auto;
-}
-
-ul.nav {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  li {
-    margin: 0;
-    padding: 0.5em;
-  }
+  grid-area: main;
 }
 </style>

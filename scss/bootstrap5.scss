@@ -1,0 +1,29 @@
+@import "variables";
+
+$prefix: ii- !default;
+
+// NOTE: Colors: https://github.com/twbs/bootstrap/blob/d0cc42c009c2f680e2fdfd3df4cf06b90d0bfd09/scss/_variables.scss#L39-L48
+// NOTE: A lot of colors generate accessibility warnings for contrast.
+// TODO: Ensure that at least the colors listed below don't raise warnings, and possibly silence warnings for the rest.
+$black: $kuro !default;
+$white: $gofun !default;
+
+$primary: $sora !default;
+$secondary: $fukagawanezumi !default;
+$success: $nae !default;
+$info: $aomidori !default;
+$warning: $yamabuki !default;
+$danger: $ake !default;
+$light: $shironeri !default;
+$dark: $sumi !default;
+
+$link-hover-color: $hanada !default;
+$code-color: $ginsyu !default;
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+$theme-colors: map-merge($theme-colors, $iroiro-colors);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
