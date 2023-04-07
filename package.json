@@ -25,6 +25,7 @@
     "url": "git+https://github.com/spenserblack/iroiro.css.git"
   },
   "keywords": [
+    "bootstrap",
     "css",
     "sass"
   ],
