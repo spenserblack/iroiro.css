@@ -39,8 +39,6 @@ import { $iroiro } from "./global-props";
   grid-area: header;
 }
 .drawer {
-  --bs-link-color: var(--bs-ebicha);
-  --bs-link-hover-color: var(--bs-kurenai);
   padding-left: 1rem;
 }
 .left-drawer {
