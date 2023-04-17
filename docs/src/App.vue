@@ -49,5 +49,7 @@ import { $iroiro } from "./global-props";
 
 .main {
   grid-area: main;
+  max-height: 100vh;
+  overflow-y: auto;
 }
 </style>
